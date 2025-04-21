@@ -1,5 +1,6 @@
 package pe.edu.upeu.ms_usuarios.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class Rol {
     @Column(name = "nombre")
     private String nombre;
     @ManyToMany(mappedBy = "roles")
+    @JsonIgnore
     private Set<Usuario> usuarios = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.LAZY)

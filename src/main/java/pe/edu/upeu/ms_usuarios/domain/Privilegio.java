@@ -1,5 +1,6 @@
 package pe.edu.upeu.ms_usuarios.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,5 +30,6 @@ public class Privilegio {
     @Column(name = "nombre")
     private String nombre;
     @ManyToMany(mappedBy = "privilegios")
+    @JsonIgnore
     private Set<Rol> roles = new HashSet<>();
 }
